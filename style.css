@@ -1,0 +1,66 @@
+html {
+    background: rgb(186, 12, 47);
+    color: rgb(10, 10, 60);
+    font: 16px/1.5 "Merriweather Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+*, *::before, *::after {box-sizing: inherit}
+
+h2 {
+    margin-bottom: 0.5rem;
+}
+
+.wrapper {
+    background: rgba(255, 255, 255, 0.95);
+    align-content: center;
+    justify-content: center;
+}
+
+.items {
+    padding-left: 5px;
+    margin-bottom: 0px;
+}
+
+.items li {
+    list-style: none;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 25rem;
+}
+
+.items input {
+    margin-right: 6px;
+}
+
+
+/*.items input + label:before {
+    content: '⬜️';
+    margin-right: 10px;
+    margin-top: 4px;
+}*/
+
+.add-items {
+    margin-bottom: 20px;
+    align-content: center;
+    display: inline-block;
+}
+
+.add-items input {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    margin-left: -5px;
+}
+
+.add-items input[type="text"] {
+    width: 25rem;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+button {
+    visibility: hidden;
+}
