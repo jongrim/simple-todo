@@ -23,6 +23,7 @@ function addItem(e) {
 
 function publishList(items = [], itemsList) {
      //Build the HTML for each item
+    if (items.length === 0) return;
     itemsList.innerHTML = items.map((item, index) => {
         return `
         <li>
