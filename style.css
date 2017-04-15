@@ -8,6 +8,12 @@ html {
     text-align: center;
 }
 
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 *, *::before, *::after {box-sizing: inherit}
 
 h2 {
@@ -16,8 +22,11 @@ h2 {
 
 .wrapper {
     background: rgba(255, 255, 255, 0.95);
-    align-content: center;
+    /*align-content: center;*/
     justify-content: center;
+    width: 28.5rem;
+    display: block;
+    margin: auto;
 }
 
 .items {
@@ -29,7 +38,6 @@ h2 {
     list-style: none;
     text-align: left;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 25rem;
 }
 
 .items input {
@@ -46,7 +54,7 @@ h2 {
 .add-items {
     margin-bottom: 20px;
     align-content: center;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 .add-items input {
@@ -61,6 +69,44 @@ h2 {
     margin: 0.5rem 0 0.5rem 0;
 }
 
-button {
-    visibility: hidden;
+.sidebar button {
+    margin-right: 25px;
+    background: black;
+    color: rgba(255, 255, 255, 0.95);
+    display: block;
+    transition: 0.3s;
+    border: none;
+    width: 90px;
+    text-align: left;
+}
+
+.sidebar {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    z-index: 1;
+    transition: 0.5s;
+    width: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    text-align: left;
+}
+
+.openSide {
+    color: black;
+    display: flex;
+    transform: translateX(15px);
+}
+
+.closeSide {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    color: white;
+}
+
+.openSide:hover, .closeSide:hover {
+    cursor: pointer;
 }

@@ -1,6 +1,9 @@
 const itemsHTML = document.querySelector('.items');
 const addItemForm = document.querySelector('.add-items');
 const items = JSON.parse(localStorage.getItem('items')) || [];
+const openSidebarButton = document.querySelector('.openSide');
+const closeSidebarButton = document.querySelector('.closeSide');
+const sidebar = document.querySelector('.sidebar');
 
 function addItem(e) {
     //add the item to items
@@ -47,6 +50,17 @@ function setLocalStorage(input) {
     localStorage.setItem('items', JSON.stringify(input));
 }
 
+function openSidebar() {
+    sidebar.style.width = '125px';
+}
+
+function closeSidebar() {
+    sidebar.style.width = '0px';
+}
+
 addItemForm.addEventListener('submit', addItem);
+openSidebarButton.addEventListener('click', openSidebar);
+closeSidebarButton.addEventListener('click', closeSidebar)
+
 itemsHTML.addEventListener('click', flipDone);
 publishList(items, itemsHTML);
