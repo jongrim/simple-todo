@@ -72,18 +72,20 @@ h2 {
 .sidebar button {
     margin-right: 25px;
     background: black;
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.7);
     display: block;
     transition: 0.3s;
     border: none;
     width: 90px;
     text-align: left;
+    font: inherit;
+    font-size: .75rem;
 }
 
 .sidebar {
     height: 100%;
     background: rgba(0, 0, 0, 0.9);
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
     z-index: 1;
     transition: 0.5s;
     width: 0;
@@ -92,6 +94,8 @@ h2 {
     left: 0;
     overflow-x: hidden;
     text-align: left;
+    font: inherit;
+    padding-top: 25px;
 }
 
 .openSide {
@@ -104,9 +108,9 @@ h2 {
     position: absolute;
     top: 0;
     right: 5px;
-    color: white;
 }
 
-.openSide:hover, .closeSide:hover {
+.openSide:hover, .closeSide:hover, button:hover {
     cursor: pointer;
+    color: white;
 }
