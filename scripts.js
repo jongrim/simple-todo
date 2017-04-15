@@ -1,9 +1,13 @@
-const itemsHTML = document.querySelector('.items');
-const addItemForm = document.querySelector('.add-items');
-const items = JSON.parse(localStorage.getItem('items')) || [];
-const openSidebarButton = document.querySelector('.openSide');
-const closeSidebarButton = document.querySelector('.closeSide');
-const sidebar = document.querySelector('.sidebar');
+const itemsHTML = document.querySelector('.items'),
+      addItemForm = document.querySelector('.add-items'),
+      openSidebarButton = document.querySelector('.openSide'),
+      closeSidebarButton = document.querySelector('.closeSide'),
+      sidebar = document.querySelector('.sidebar'),
+      checkAllButton = document.querySelector('#checkAll'),
+      deleteButton = document.querySelector('#delete'),
+      resetButton = document.querySelector('#reset');
+
+var items = JSON.parse(localStorage.getItem('items')) || [];
 
 function addItem(e) {
     //add the item to items
@@ -26,7 +30,10 @@ function addItem(e) {
 
 function publishList(items = [], itemsList) {
      //Build the HTML for each item
-    if (items.length === 0) return;
+    if (items.length === 0) {
+        resetList();
+        return;
+    }
     itemsList.innerHTML = items.map((item, index) => {
         return `
         <li>
@@ -58,9 +65,37 @@ function closeSidebar() {
     sidebar.style.width = '0px';
 }
 
+function checkAll() {
+    for (var item of items) {
+        item.done = true;
+    }
+    publishList(items, itemsHTML);
+}
+
+function deleteSelected() {
+    let newItems = [];
+    for (var item of items) {
+        if (item.done == false) {
+            newItems.push(item);
+        }
+    }
+    items = Array.from(newItems);
+    setLocalStorage(newItems);
+    publishList(newItems, itemsHTML);
+}
+
+function resetList() {
+    itemsHTML.innerHTML = "<li>Starting building your todo list above and watch them appear down here!</li><li>Don't worry about if you close the window. Your items will be here when you get back 😺</li>";
+    localStorage.removeItem('items');
+    items = [];
+}
+
 addItemForm.addEventListener('submit', addItem);
 openSidebarButton.addEventListener('click', openSidebar);
 closeSidebarButton.addEventListener('click', closeSidebar)
+checkAllButton.addEventListener('click', checkAll);
+deleteButton.addEventListener('click', deleteSelected);
+resetButton.addEventListener('click', resetList);
 
 itemsHTML.addEventListener('click', flipDone);
 publishList(items, itemsHTML);
